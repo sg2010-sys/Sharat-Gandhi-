@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharat Gandhi — Independent Graphic Designer & Visual Identity Studio</title>
+  <meta name="description" content="Independent graphic designer Sharat Gandhi specializing in brand identity systems, editorial publications, social media architecture, and custom visual solutions.">
+
+  <!-- Typography: Playfair Display & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. LUXURY EDITORIAL TOKENS & RESET
+       ========================================================================== */
+    :root {
+      --bg-primary: #F7F4ED;
+      --bg-secondary: #EAE3D8;
+      --bg-card: #FFFFFF;
+      --text-primary: #26251F;
+      --text-secondary: #77746B;
+      --accent: #92947B;
+      --accent-deep: #6f7158;
+      --accent-soft: rgba(146, 148, 123, 0.16);
+      --border-subtle: rgba(38, 37, 31, 0.08);
+      --border-medium: rgba(38, 37, 31, 0.16);
+      --border-strong: rgba(38, 37, 31, 0.28);
+      
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-interface: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --container-max: 1280px;
+      --ease-studio: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-interface);
+      line-height: 1.65;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Tactile Paper Texture Overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .container { padding: 0 3rem; }
+    }
+
+    /* Typography Utilities */
+    .section-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent-deep);
+      margin-bottom: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-eyebrow::before {
+      content: "";
+      width: 16px;
+      height: 1px;
+      background-color: var(--accent);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      max-width: 620px;
+      margin-top: 0.85rem;
+      font-weight: 400;
+    }
+
+    .section-padding {
+      padding: 6.5rem 0;
+      position: relative;
+    }
+
+    @media (min-width: 992px) {
+      .section-padding { padding: 9.5rem 0; }
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.95rem 1.95rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      position: relative;
+      transition: var(--ease-studio) 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-deep);
+      border-color: var(--accent-deep);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(38, 37, 31, 0.12);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-primary);
+      border-color: var(--border-strong);
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-secondary);
+      border-color: var(--text-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Studio Registry Crosshair Marks */
+    .proof-mark {
+      position: absolute;
+      font-size: 0.7rem;
+      color: var(--accent);
+      user-select: none;
+      pointer-events: none;
+      font-family: monospace;
+      opacity: 0.65;
+    }
+
+    /* Status Badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(234, 227, 216, 0.6);
+      border: 1px solid var(--border-medium);
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: #4D7C4C;
+      position: relative;
+    }
+
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background-color: rgba(77, 124, 76, 0.4);
+      animation: pulse 2.4s infinite ease-out;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.8); opacity: 0.9; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    /* ==========================================================================
+       2. REFINED EDITORIAL HEADER & NAVIGATION
+       ========================================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(247, 244, 237, 0.94);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: var(--ease-studio) 0.3s;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 84px;
+    }
+
+    .brand-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-logo {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .brand-logo span {
+      color: var(--accent);
+      font-size: 1.7rem;
+    }
+
+    .brand-subline {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .nav-center {
+      display: none;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-center a {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      position: relative;
+      padding: 0.4rem 0;
+      transition: var(--ease-studio) 0.3s;
+    }
+
+    .nav-center a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-center a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background-color: var(--text-primary);
+      transition: var(--ease-studio) 0.3s;
+    }
+
+    .nav-center a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right-meta {
+      display: none;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .studio-clock {
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+      font-variant-numeric: tabular-nums;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-right: 1px solid var(--border-medium);
+      padding-right: 1.5rem;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .mobile-menu-btn span {
+      width: 26px;
+      height: 1.5px;
+      background-color: var(--text-primary);
+      transition: var(--ease-studio) 0.3s;
+    }
+
+    @media (min-width: 960px) {
+      .nav-center, .nav-right-meta { display: flex; }
+      .mobile-menu-btn { display: none; }
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 84px;
+      left: 0;
+      width: 100%;
+      background-color: var(--bg-primary);
+      border-bottom: 1px solid var(--border-medium);
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      transform: translateY(-125%);
+      transition: transform 0.4s var(--ease-studio);
+      z-index: 99;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+    }
+
+    .mobile-drawer.open { transform: translateY(0); }
+
+    .mobile-drawer a {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION: EDITORIAL COMPOSITION
+       ========================================================================== */
+    .hero-section {
+      padding: 4.5rem 0 6rem;
+      position: relative;
+    }
+
+    @media (min-width: 992px) {
+      .hero-section { padding: 6.5rem 0 8.5rem; }
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .hero-grid { grid-template-columns: 1.25fr 0.95fr; }
+    }
+
+    .hero-content {
+      max-width: 660px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5.8vw, 4.6rem);
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      margin: 1.75rem 0 1.5rem;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-deep);
+      font-weight: 400;
+      display: inline-block;
+    }
+
+    .hero-description {
+      font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 2.75rem;
+      max-width: 580px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    /* Bespoke Graphic Composition Artifact */
+    .hero-art-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .editorial-canvas {
+      width: 100%;
+      max-width: 460px;
+      aspect-ratio: 4 / 5.2;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-medium);
+      padding: 2.5rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 24px 50px rgba(38, 37, 31, 0.07);
+    }
+
+    .editorial-canvas::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(38, 37, 31, 0.08);
+      pointer-events: none;
+    }
+
+    .canvas-top-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-secondary);
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .canvas-centerpiece {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.25rem;
+      margin: auto 0;
+    }
+
+    .monogram-seal {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 1px dashed var(--accent);
+      background: radial-gradient(circle at 35% 35%, #FFFFFF, var(--bg-secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: 0 10px 24px rgba(146, 148, 123, 0.18);
+    }
+
+    .monogram-seal span {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-style: italic;
+      color: var(--text-primary);
+    }
+
+    .canvas-bottom-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.76rem;
+    }
+
+    .canvas-note-card {
+      position: absolute;
+      bottom: -18px;
+      left: -12px;
+      background: #FFFFFF;
+      padding: 1.1rem 1.4rem;
+      border: 1px solid var(--border-medium);
+      box-shadow: 0 12px 30px rgba(38, 37, 31, 0.08);
+      max-width: 240px;
+      border-radius: 2px;
+    }
+
+    .canvas-note-card p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .canvas-note-card strong {
+      display: block;
+      color: var(--text-primary);
+      font-size: 0.84rem;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ==========================================================================
+       4. ABOUT SECTION
+       ========================================================================== */
+    .about-section {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    @media (min-width: 992px) {
+      .about-layout { grid-template-columns: 0.85fr 1.15fr; }
+    }
+
+    .portrait-frame {
+      position: relative;
+      background: #DFD7CA;
+      aspect-ratio: 4 / 5.2;
+      border: 1px solid var(--border-medium);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .portrait-inner-box {
+      width: 100%;
+      height: 100%;
+      background: var(--bg-primary);
+      border: 1px dashed var(--border-strong);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .about-story {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+
+    .about-story p {
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      line-height: 1.8;
+    }
+
+    .about-story p strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .studio-manifesto {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1.25rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-medium);
+    }
+
+    @media (min-width: 600px) {
+      .studio-manifesto { grid-template-columns: 1fr 1fr; }
+    }
+
+    .manifesto-point h4 {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--text-primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .manifesto-point p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       5. SERVICES SECTION
+       ========================================================================== */
+    .services-header-row {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .services-header-row {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 680px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1040px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .service-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      padding: 2.75rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-radius: 2px;
+      transition: var(--ease-studio) 0.35s;
+      position: relative;
+    }
+
+    .service-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(38, 37, 31, 0.05);
+    }
+
+    .service-index {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 1.75rem;
+      display: block;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.015em;
+    }
+
+    .service-body {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+
+    .service-specs {
+      list-style: none;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.25rem;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .service-specs li {
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .service-specs li::before {
+      content: "—";
+      color: var(--accent);
+    }
+
+    /* ==========================================================================
+       6. SELECTED WORKS (PORTFOLIO GALLERY)
+       ========================================================================== */
+    .portfolio-section {
+      background-color: #FAF8F3;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .gallery-filter-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 3.5rem 0 4rem;
+    }
+
+    .filter-chip {
+      background: transparent;
+      border: 1px solid var(--border-medium);
+      color: var(--text-secondary);
+      padding: 0.6rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--ease-studio) 0.3s;
+    }
+
+    .filter-chip:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    .filter-chip.active {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      border-color: var(--text-primary);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .project-entry {
+      background-color: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: var(--ease-studio) 0.4s;
+      position: relative;
+    }
+
+    .project-entry:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(38, 37, 31, 0.08);
+      border-color: var(--border-medium);
+    }
+
+    .project-viewport {
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      background-color: var(--bg-secondary);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-viewport svg, 
+    .project-viewport img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-studio);
+    }
+
+    .project-entry:hover .project-viewport svg,
+    .project-entry:hover .project-viewport img {
+      transform: scale(1.035);
+    }
+
+    .project-body-card {
+      padding: 2rem 2.25rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .project-tagline-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.65rem;
+    }
+
+    .project-category-badge {
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+
+    .project-year-badge {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      font-family: monospace;
+    }
+
+    .project-title-text {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.65rem;
+      letter-spacing: -0.015em;
+    }
+
+    .project-abstract {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 1.75rem;
+    }
+
+    .view-case-trigger {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .view-case-trigger svg {
+      transition: transform 0.25s ease;
+    }
+
+    .project-entry:hover .view-case-trigger svg {
+      transform: translateX(5px);
+    }
+
+    /* ==========================================================================
+       7. CREATIVE PROCESS
+       ========================================================================== */
+    .process-section {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media (min-width: 640px) {
+      .process-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .process-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .process-phase {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .process-phase-number {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-style: italic;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-phase-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .process-phase-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       8. WHY WORK WITH SHARAT GANDHI
+       ========================================================================== */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .values-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .values-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .value-card {
+      border-left: 2px solid var(--accent);
+      padding: 0.5rem 0 0.5rem 1.75rem;
+    }
+
+    .value-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .value-desc {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       9. CONTACT & HIRE ME SECTION
+       ========================================================================== */
+    .inquiry-panel {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      display: grid;
+      grid-template-columns: 1fr;
+      box-shadow: 0 20px 50px rgba(38, 37, 31, 0.04);
+    }
+
+    @media (min-width: 992px) {
+      .inquiry-panel { grid-template-columns: 1.05fr 1.35fr; }
+    }
+
+    .inquiry-details {
+      background-color: var(--bg-secondary);
+      padding: 3.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-medium);
+    }
+
+    @media (min-width: 992px) {
+      .inquiry-details {
+        border-bottom: none;
+        border-right: 1px solid var(--border-medium);
+        padding: 4.5rem 3.5rem;
+      }
+    }
+
+    .direct-comm-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .comm-row {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .comm-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-primary);
+      border: 1px solid var(--border-medium);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-deep);
+      flex-shrink: 0;
+    }
+
+    .copy-pill-btn {
+      background: none;
+      border: 1px dashed var(--accent);
+      padding: 0.2rem 0.55rem;
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      margin-left: 0.5rem;
+      border-radius: 2px;
+      transition: var(--ease-studio) 0.2s;
+    }
+
+    .copy-pill-btn:hover {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
+
+    /* Form Area */
+    .inquiry-form-wrap {
+      padding: 3.5rem 2.5rem;
+    }
+
+    @media (min-width: 992px) {
+      .inquiry-form-wrap { padding: 4.5rem 3.5rem; }
+    }
+
+    .editorial-form-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+
+    @media (min-width: 640px) {
+      .editorial-form-grid { grid-template-columns: 1fr 1fr; }
+      .full-span { grid-column: span 2; }
+    }
+
+    .input-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .input-field-group label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .field-text {
+      width: 100%;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-medium);
+      padding: 0.95rem 1.15rem;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      outline: none;
+      border-radius: 2px;
+      transition: var(--ease-studio) 0.3s;
+    }
+
+    .field-text:focus {
+      border-color: var(--accent);
+      background-color: #FFFFFF;
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    textarea.field-text {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .feedback-notice {
+      display: none;
+      padding: 1.25rem;
+      border-radius: 2px;
+      margin-top: 1.5rem;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .feedback-notice.success {
+      display: block;
+      background: #EBF1EA;
+      color: #2B572B;
+      border: 1px solid #BED1BD;
+    }
+
+    /* ==========================================================================
+       10. STUDIO FOOTER
+       ========================================================================== */
+    .studio-footer {
+      border-top: 1px solid var(--border-medium);
+      padding: 5rem 0 3rem;
+      background-color: var(--bg-primary);
+    }
+
+    .footer-columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+      margin-bottom: 4rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-columns { grid-template-columns: 1.6fr 1fr 1fr; }
+    }
+
+    .footer-col-header {
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent-deep);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-link-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-link-list a {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-link-list a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-closure-bar {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+    }
+
+    @media (min-width: 768px) {
+      .footer-closure-bar {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    /* ==========================================================================
+       11. ARCHITECTURAL CASE STUDY MODAL
+       ========================================================================== */
+    .case-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(38, 37, 31, 0.72);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .case-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .case-modal-window {
+      background: var(--bg-primary);
+      width: 100%;
+      max-width: 1040px;
+      max-height: 90vh;
+      border: 1px solid var(--border-strong);
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(24px);
+      transition: transform 0.4s var(--ease-studio);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.25);
+    }
+
+    .case-modal-overlay.active .case-modal-window {
+      transform: translateY(0);
+    }
+
+    .case-modal-close {
+      position: sticky;
+      top: 1.25rem;
+      float: right;
+      margin-right: 1.25rem;
+      z-index: 20;
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--text-primary);
+      font-size: 1.2rem;
+      transition: var(--ease-studio) 0.2s;
+    }
+
+    .case-modal-close:hover {
+      background: var(--bg-secondary);
+      transform: rotate(90deg);
+    }
+
+    .case-modal-pad {
+      padding: 3rem 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .case-modal-pad { padding: 4.5rem 3.5rem; }
+    }
+
+    .case-spec-table {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      padding: 2rem 0;
+      margin: 2rem 0;
+      border-top: 1px solid var(--border-medium);
+      border-bottom: 1px solid var(--border-medium);
+    }
+
+    @media (min-width: 768px) {
+      .case-spec-table { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .spec-item span {
+      display: block;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-deep);
+      margin-bottom: 0.35rem;
+    }
+
+    .spec-item strong {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .case-gallery-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2.5rem 0;
+    }
+
+    .case-art-frame {
+      width: 100%;
+      border: 1px solid var(--border-medium);
+      background: var(--bg-secondary);
+      overflow: hidden;
+    }
+
+    .case-art-frame svg,
+    .case-art-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .case-analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border-medium);
+    }
+
+    @media (min-width: 768px) {
+      .case-analysis-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .analysis-cell h4 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-deep);
+      margin-bottom: 0.65rem;
+    }
+
+    .analysis-cell p {
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="brand-group">
+        <a href="#home" class="brand-logo" aria-label="Sharat Gandhi Home">
+          Sharat Gandhi<span>.</span>
+        </a>
+        <span class="brand-subline">Graphic Design Studio</span>
+      </div>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-center">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right-meta">
+        <div class="studio-clock">
+          <span class="status-dot"></span>
+          <span>IST <strong id="studioTime">16:40</strong></span>
+        </div>
+        <a href="#contact" class="btn btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">Hire Me</a>
+      </div>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <a href="#home" class="mobile-nav-link">01. Home</a>
+    <a href="#about" class="mobile-nav-link">02. About</a>
+    <a href="#services" class="mobile-nav-link">03. Services</a>
+    <a href="#portfolio" class="mobile-nav-link">04. Portfolio</a>
+    <a href="#contact" class="mobile-nav-link">05. Contact</a>
+    <a href="#contact" class="btn btn-primary mobile-nav-link" style="margin-top: 1rem; text-align: center;">Hire Me</a>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section" id="home">
+      <span class="proof-mark" style="top: 2rem; left: 3rem;">+ [REG_01]</span>
+      <span class="proof-mark" style="top: 2rem; right: 3rem;">[50-50]</span>
+
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="status-badge">
+              <span class="status-dot"></span>
+              <span>Available for Freelance Inquiries</span>
+            </div>
+
+            <h1 class="hero-title">
+              Thoughtful Design. <br>
+              <em>Meaningful Impact.</em>
+            </h1>
+
+            <p class="hero-description">
+              I help businesses and creators build a memorable visual identity through thoughtful graphic design and creative digital experiences.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#portfolio" class="btn btn-primary">
+                View My Work
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#contact" class="btn btn-secondary">Let's Work Together</a>
+            </div>
+          </div>
+
+          <!-- Editorial Studio Artifact (Bespoke Vector Composition) -->
+          <div class="hero-art-stage">
+            <div class="editorial-canvas">
+              <div class="canvas-top-meta">
+                <span>Sharat Gandhi Studio</span>
+                <span>Visual Arts Plate 01</span>
+              </div>
+
+              <div class="canvas-centerpiece">
+                <div class="monogram-seal">
+                  <span>SG</span>
+                </div>
+                <div style="font-family: var(--font-display); font-size: 1.45rem; letter-spacing: -0.01em;">
+                  Clarity &bull; Hierarchy &bull; Craft
+                </div>
+                <p style="font-size: 0.76rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-secondary);">
+                  Brand Systems &bull; Editorial Publications
+                </p>
+              </div>
+
+              <div class="canvas-bottom-meta">
+                <div>
+                  <span style="font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); display: block;">Practice</span>
+                  <span>Independent Design Practice</span>
+                </div>
+                <span style="font-family: monospace; color: var(--accent-deep);">FIG. 2026</span>
+              </div>
+            </div>
+
+            <div class="canvas-note-card">
+              <strong>Direct Collaboration</strong>
+              <p>Work directly with Sharat Gandhi on every stage from brief to final export.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ABOUT SECTION
+         ========================================================================== -->
+    <section class="section-padding about-section" id="about">
+      <div class="container">
+        <div class="about-layout">
+          <div class="portrait-frame">
+            <div class="portrait-inner-box">
+              <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent-deep); margin-bottom: 1.25rem;">
+                <circle cx="12" cy="8" r="5"/>
+                <path d="M20 21a8 8 0 1 0-16 0"/>
+              </svg>
+              <h3 style="font-family: var(--font-display); font-size: 1.35rem; color: var(--text-primary); margin-bottom: 0.25rem;">Sharat Gandhi</h3>
+              <p style="font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-deep);">Independent Graphic Designer</p>
+              <div style="width: 32px; height: 1px; background: var(--border-medium); margin: 1.25rem 0;"></div>
+              <p style="font-size: 0.8rem; color: var(--text-secondary); line-height: 1.6;">Focusing on thoughtful visual solutions that respect typography and space.</p>
+            </div>
+          </div>
+
+          <div class="about-story">
+            <div>
+              <span class="section-eyebrow">Creative Direction</span>
+              <h2 class="section-title">Designing With Purpose.</h2>
+            </div>
+
+            <p>
+              I am <strong>Sharat Gandhi</strong>, an independent freelance graphic designer dedicated to crafting clear, distinctive, and purposeful visual assets. Rather than chasing fleeting internet trends or loading layouts with arbitrary decoration, my work centers on <strong>visual communication that solves real business challenges</strong>.
+            </p>
+
+            <p>
+              My practice is grounded in a deep passion for <strong>typography, balanced composition, and cohesive brand systems</strong>. I believe every visual detail should serve a purpose—whether that means guiding an audience's eye across an editorial social slide, commanding trust through an understated mark, or producing high-converting campaign collateral.
+            </p>
+
+            <p>
+              When we collaborate, I invest time to thoroughly dissect your project requirements and understand your audience before producing visual concepts. The result is work that feels authentic, professional, and built for lasting impact.
+            </p>
+
+            <div class="studio-manifesto">
+              <div class="manifesto-point">
+                <h4>Intentional Typography</h4>
+                <p>Curated font pairings and disciplined scales that speak with nuance and authority.</p>
+              </div>
+              <div class="manifesto-point">
+                <h4>Client-First Partnership</h4>
+                <p>Transparent communication, clear milestones, and organized file handoffs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SERVICES SECTION
+         ========================================================================== -->
+    <section class="section-padding" id="services">
+      <div class="container">
+        <div class="services-header-row">
+          <div>
+            <span class="section-eyebrow">Services & Capabilities</span>
+            <h2 class="section-title">Tailored Visual Solutions.</h2>
+          </div>
+          <p class="section-subtitle">
+            Focused capabilities designed to elevate brands, empower creators, and produce distinctive marketing materials.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div>
+              <span class="service-index">[01]</span>
+              <h3 class="service-title">Social Media Design</h3>
+              <p class="service-body">
+                High-engagement Instagram carousels, editorial story systems, promotional creatives, and coherent social design frameworks.
+              </p>
+            </div>
+            <ul class="service-specs">
+              <li>Editorial carousel storyboards</li>
+              <li>Brand social template kits</li>
+              <li>Campaign release graphics</li>
+            </ul>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div>
+              <span class="service-index">[02]</span>
+              <h3 class="service-title">Thumbnail Design</h3>
+              <p class="service-body">
+                Eye-catching, narrative YouTube thumbnails designed to communicate ideas clearly and stop the scroll without cheap gimmicks.
+              </p>
+            </div>
+            <ul class="service-specs">
+              <li>High-contrast focal composition</li>
+              <li>Custom headline typography</li>
+              <li>A/B testing concept pairs</li>
+            </ul>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card">
+            <div>
+              <span class="service-index">[03]</span>
+              <h3 class="service-title">Brand Identity Design</h3>
+              <p class="service-body">
+                Comprehensive visual identity systems including distinct logo marks, harmonious color palettes, typography scales, and style guides.
+              </p>
+            </div>
+            <ul class="service-specs">
+              <li>Primary & secondary logo suite</li>
+              <li>Curated color & type systems</li>
+              <li>Digital brand style guidelines</li>
+            </ul>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card">
+            <div>
+              <span class="service-index">[04]</span>
+              <h3 class="service-title">Marketing & Promotional</h3>
+              <p class="service-body">
+                Refined print and digital marketing collateral such as posters, exhibition signage, banners, brochures, and digital advertisement suites.
+              </p>
+            </div>
+            <ul class="service-specs">
+              <li>Exhibition & event posters</li>
+              <li>Digital ad campaigns</li>
+              <li>Promotional print collateral</li>
+            </ul>
+          </article>
+
+          <!-- Service 5 -->
+          <article class="service-card">
+            <div>
+              <span class="service-index">[05]</span>
+              <h3 class="service-title">Custom Graphic Design</h3>
+              <p class="service-body">
+                Bespoke design solutions created for individual briefs, including product packaging labels, investor presentation decks, and visual assets.
+              </p>
+            </div>
+            <ul class="service-specs">
+              <li>Packaging & bottle label designs</li>
+              <li>Keynote & presentation decks</li>
+              <li>Custom editorial layouts</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SELECTED WORKS (PORTFOLIO GALLERY)
+         ========================================================================== -->
+    <section class="section-padding portfolio-section" id="portfolio">
+      <div class="container">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+          <span class="section-eyebrow" style="justify-content: center;">Portfolio</span>
+          <h2 class="section-title">Selected Works.</h2>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
+            A collection of creative projects, experiments, and visual solutions by Sharat Gandhi. Select any case to inspect the design objectives and creative approach.
+          </p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="gallery-filter-wrap" role="group" aria-label="Filter portfolio projects">
+          <button class="filter-chip active" data-filter="all">All Projects</button>
+          <button class="filter-chip" data-filter="branding">Branding</button>
+          <button class="filter-chip" data-filter="social-media">Social Media</button>
+          <button class="filter-chip" data-filter="thumbnails">Thumbnails</button>
+          <button class="filter-chip" data-filter="posters">Posters</button>
+          <button class="filter-chip" data-filter="other">Other Designs</button>
+        </div>
+
+        <!-- Dynamic Grid Injected Via JS Data -->
+        <div class="portfolio-grid" id="projectsContainer"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CREATIVE PROCESS
+         ========================================================================== -->
+    <section class="section-padding process-section">
+      <div class="container">
+        <div style="text-align: center; max-width: 620px; margin: 0 auto;">
+          <span class="section-eyebrow" style="justify-content: center;">Methodology</span>
+          <h2 class="section-title">My Creative Process.</h2>
+          <p class="section-subtitle" style="margin: 0.85rem auto 0;">
+            A disciplined four-phase framework that eliminates guesswork and delivers purposeful creative work on schedule.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-phase">
+            <span class="process-phase-number">01</span>
+            <h3 class="process-phase-title">Understanding</h3>
+            <p class="process-phase-desc">
+              Understanding the client's business, audience, positioning, and functional design requirements before producing visual ideas.
+            </p>
+          </div>
+
+          <div class="process-phase">
+            <span class="process-phase-number">02</span>
+            <h3 class="process-phase-title">Research</h3>
+            <p class="process-phase-desc">
+              Exploring visual directions, typographic historical references, moodboards, and composition hierarchies to establish creative clarity.
+            </p>
+          </div>
+
+          <div class="process-phase">
+            <span class="process-phase-number">03</span>
+            <h3 class="process-phase-title">Designing</h3>
+            <p class="process-phase-desc">
+              Turning the chosen direction into thoughtful visual solutions. Iterating on typographic balance, contrast, and layout systems.
+            </p>
+          </div>
+
+          <div class="process-phase">
+            <span class="process-phase-number">04</span>
+            <h3 class="process-phase-title">Delivery</h3>
+            <p class="process-phase-desc">
+              Refining every detail and delivering organized, production-ready vector, digital, and print files ready for immediate deployment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WHY WORK WITH ME
+         ========================================================================== -->
+    <section class="section-padding">
+      <div class="container">
+        <div style="max-width: 650px;">
+          <span class="section-eyebrow">Work Ethic & Standards</span>
+          <h2 class="section-title">Why Work With Me?</h2>
+          <p class="section-subtitle">
+            Reliable freelance partnerships are built on integrity, honest communication, and consistent craft.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          <div class="value-card">
+            <h3 class="value-title">Attention to Detail</h3>
+            <p class="value-desc">From micro-typographic kerning to deliberate grid rhythm, I care deeply about the quiet refinements that make visual work feel complete.</p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title">Creative Thinking</h3>
+            <p class="value-desc">I approach every brief with an open mind, seeking creative solutions that make your business stand out authentically in your space.</p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title">Clear Communication</h3>
+            <p class="value-desc">Prompt responses, honest advice, and zero jargon. You will always know what is being worked on and what milestones are coming next.</p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title">Client-Focused Approach</h3>
+            <p class="value-desc">Your objectives determine the creative path. I work collaboratively to ensure every design deliverable directly serves your commercial goals.</p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title">Commitment to Quality</h3>
+            <p class="value-desc">No cut corners or rushed templates. Every project receives dedicated focus and rigorous polish before it leaves my desk.</p>
+          </div>
+
+          <div class="value-card">
+            <h3 class="value-title">Reliable Project Delivery</h3>
+            <p class="value-desc">Deadlines are respected and protected. I provide realistic schedules and deliver organized assets exactly when promised.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT & HIRE ME
+         ========================================================================== -->
+    <section class="section-padding" id="contact" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-medium);">
+      <div class="container">
+        <div class="inquiry-panel">
+          <!-- Sidebar Info -->
+          <div class="inquiry-details">
+            <div>
+              <span class="section-eyebrow">Direct Contact</span>
+              <h2 class="section-title" style="font-size: 2.3rem; margin-bottom: 1rem;">
+                Let's Create Something Meaningful.
+              </h2>
+              <p style="color: var(--text-secondary); font-size: 0.98rem; line-height: 1.7;">
+                Have a project in mind? Let's discuss your ideas and turn them into something special.
+              </p>
+
+              <div class="direct-comm-list">
+                <div class="comm-row">
+                  <div class="comm-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary); display: block;">Direct Email</span>
+                    <div style="display: flex; align-items: center;">
+                      <a href="mailto:sharatgandhi.design@gmail.com" class="contact-link" style="font-weight: 500; font-size: 0.95rem;">sharatgandhi.design@gmail.com</a>
+                      <button class="copy-pill-btn" onclick="copyEmail(this)" aria-label="Copy Email">Copy</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comm-row">
+                  <div class="comm-icon-box">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                  </div>
+                  <div>
+                    <span style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary); display: block;">Instant Inquiry</span>
+                    <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener" style="font-weight: 500; font-size: 0.95rem;">Message on WhatsApp &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <span style="font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-secondary); display: block; margin-bottom: 0.6rem;">Social Profiles</span>
+              <div style="display: flex; gap: 1.25rem;">
+                <a href="https://instagram.com" target="_blank" rel="noopener" style="font-size: 0.88rem; color: var(--text-secondary); border-bottom: 1px dashed var(--accent);">Instagram</a>
+                <a href="https://behance.net" target="_blank" rel="noopener" style="font-size: 0.88rem; color: var(--text-secondary); border-bottom: 1px dashed var(--accent);">Behance</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" style="font-size: 0.88rem; color: var(--text-secondary); border-bottom: 1px dashed var(--accent);">LinkedIn</a>
+                <a href="https://x.com" target="_blank" rel="noopener" style="font-size: 0.88rem; color: var(--text-secondary); border-bottom: 1px dashed var(--accent);">Twitter / X</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Area -->
+          <div class="inquiry-form-wrap">
+            <form id="inquiryForm" method="POST" action="#">
+              <div class="editorial-form-grid">
+                <div class="input-field-group">
+                  <label for="clientName">Your Name *</label>
+                  <input type="text" id="clientName" name="name" class="field-text" placeholder="e.g. Eleanor Vance" required>
+                </div>
+
+                <div class="input-field-group">
+                  <label for="clientEmail">Email Address *</label>
+                  <input type="email" id="clientEmail" name="email" class="field-text" placeholder="eleanor@studio.com" required>
+                </div>
+
+                <div class="input-field-group full-span">
+                  <label for="serviceCategory">Service Required</label>
+                  <select id="serviceCategory" name="service" class="field-text">
+                    <option value="Brand Identity">Brand Identity Design</option>
+                    <option value="Social Media System">Social Media Creative System</option>
+                    <option value="YouTube Thumbnails">High-CTR Thumbnail Design</option>
+                    <option value="Marketing & Print">Marketing & Promotional Collateral</option>
+                    <option value="Custom Graphic Design">Custom Visual Design Solution</option>
+                    <option value="General Inquiry">General Creative Consultation</option>
+                  </select>
+                </div>
+
+                <div class="input-field-group full-span">
+                  <label for="projectDescription">Project Details & Timeline *</label>
+                  <textarea id="projectDescription" name="message" class="field-text" placeholder="Share a few sentences about your business, the deliverables you envision, and your target completion timeline..." required></textarea>
+                </div>
+
+                <div class="full-span" style="margin-top: 0.5rem;">
+                  <button type="submit" class="btn btn-primary" style="width: 100%; letter-spacing: 0.08em;">
+                    Send Inquiry to Sharat
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div id="formSuccessNotice" class="feedback-notice" role="alert">
+                Thank you! Your inquiry has been transmitted. I will review your project parameters and respond within 24 to 48 hours.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="studio-footer">
+    <div class="container">
+      <div class="footer-columns">
+        <div>
+          <a href="#home" class="brand-logo" style="margin-bottom: 0.75rem;">
+            Sharat Gandhi<span>.</span>
+          </a>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 360px; line-height: 1.65;">
+            Independent graphic designer crafting purposeful visual identity systems, engaging editorial content, and bespoke design solutions for forward-thinking brands and creators.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-header">Site Navigation</h4>
+          <ul class="footer-link-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Sharat</a></li>
+            <li><a href="#services">Services & Rates</a></li>
+            <li><a href="#portfolio">Selected Works</a></li>
+            <li><a href="#contact">Contact & Inquiry</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-header">Studio Coordinates</h4>
+          <ul class="footer-link-list">
+            <li><a href="mailto:sharatgandhi.design@gmail.com">sharatgandhi.design@gmail.com</a></li>
+            <li><a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener">WhatsApp Direct Chat</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram Folio</a></li>
+            <li><a href="https://behance.net" target="_blank" rel="noopener">Behance Case Studies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-closure-bar">
+        <p>&copy; <span id="copyrightYear"></span> Sharat Gandhi. All rights reserved. Crafted with Cozy Minimalism.</p>
+        <p style="color: var(--accent-deep); font-family: monospace;">LATITUDE: 19.0760° N &bull; PROOF VERIFIED</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       ARCHITECTURAL CASE STUDY MODAL
+       ========================================================================== -->
+  <div class="case-modal-overlay" id="caseModal" role="dialog" aria-modal="true" aria-labelledby="modalHeading">
+    <div class="case-modal-window">
+      <button class="case-modal-close" id="modalClose" aria-label="Close Case Study">&times;</button>
+      <div class="case-modal-pad" id="modalInnerData">
+        <!-- Dynamically injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       JAVASCRIPT: ARCHITECTURE, DATA & FILTERING ENGINE
+       ========================================================================== -->
+  <script>
+    /**
+     * SHARAT GANDHI — REUSABLE PROJECT DATA STORE
+     * -------------------------------------------------------------
+     * To showcase your real projects:
+     * 1. Change 'title', 'category', 'year', 'summary', etc.
+     * 2. Replace the 'coverSvg' / 'images' entries with paths to your actual files
+     *    (e.g., 'images/my-branding-project.jpg').
+     * 3. Add or remove project objects from this array.
+     */
+    const portfolioProjects = [
+      {
+        id: "proj-1",
+        title: "Kōhī Specialty Roasters",
+        category: "branding",
+        categoryLabel: "Brand Identity",
+        year: "2026",
+        summary: "Visual identity system, single-origin packaging labels, and brand guidelines for an artisanal slow-roast coffee roastery.",
+        // Bespoke Vector Graphic: Minimalist Coffee Packaging
+        cover: `<svg viewBox="0 0 800 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#EAE3D8"/>
+          <g transform="translate(240, 60)">
+            <rect width="320" height="420" rx="4" fill="#F7F4ED" stroke="#26251F" stroke-width="1.5" filter="drop-shadow(0 14px 28px rgba(0,0,0,0.06))"/>
+            <rect x="25" y="25" width="270" height="370" fill="none" stroke="#26251F" stroke-width="0.75" stroke-dasharray="3 3"/>
+            <text x="160" y="110" font-family="'Playfair Display', serif" font-size="28" font-style="italic" fill="#26251F" text-anchor="middle">Kōhī Roasters</text>
+            <text x="160" y="135" font-family="'DM Sans', sans-serif" font-size="9" letter-spacing="3" fill="#92947B" text-anchor="middle">SPECIALTY COFFEE • TOKYO</text>
+            <circle cx="160" cy="200" r="38" fill="none" stroke="#92947B" stroke-width="1"/>
+            <text x="160" y="206" font-family="'Playfair Display', serif" font-size="18" fill="#26251F" text-anchor="middle">珈琲</text>
+            <line x1="60" y1="270" x2="260" y2="270" stroke="#26251F" stroke-width="0.5"/>
+            <text x="60" y="295" font-family="'DM Sans', sans-serif" font-size="9" fill="#77746B">ELEVATION: 1,950M</text>
+            <text x="60" y="315" font-family="'DM Sans', sans-serif" font-size="9" fill="#77746B">PROCESS: WASHED / HEIRLOOM</text>
+            <text x="60" y="335" font-family="'DM Sans', sans-serif" font-size="9" fill="#77746B">NOTES: BERGAMOT &amp; JASMINE</text>
+            <rect x="60" y="360" width="200" height="14" fill="#92947B" opacity="0.3"/>
+          </g>
+        </svg>`,
+        images: [
+          `<svg viewBox="0 0 1000 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#E3DDD1"/>
+            <text x="500" y="240" font-family="'Playfair Display', serif" font-size="34" fill="#26251F" text-anchor="middle">Kōhī Identity Suite</text>
+            <text x="500" y="280" font-family="'DM Sans', sans-serif" font-size="12" letter-spacing="4" fill="#77746B" text-anchor="middle">PRIMARY MARK • MONOGRAM • TYPOGRAPHY SPECIMEN</text>
+            <circle cx="500" cy="370" r="45" fill="none" stroke="#26251F" stroke-width="1"/>
+            <text x="500" y="377" font-family="'Playfair Display', serif" font-size="22" font-style="italic" fill="#26251F" text-anchor="middle">K</text>
+          </svg>`
+        ],
+        overview: "A comprehensive identity system designed for an independent micro-roastery focused on ethical single-origin harvests and minimalist Japanese aesthetics.",
+        objective: "Establish a distinct visual signature capable of cutting through the noisy artisanal coffee market while celebrating restraint and tactile packaging materials.",
+        approach: "Pairing custom modified serif letterforms with bilingual Japanese typography, warm earth tones, and disciplined informational grids.",
+        outcome: "A full brand suite consisting of logo variations, pouch packaging designs, origin tasting cards, and retail guidelines."
+      },
+      {
+        id: "proj-2",
+        title: "The Architecture Digest Series",
+        category: "social-media",
+        categoryLabel: "Social Media",
+        year: "2026",
+        summary: "Editorial Instagram carousel architecture and promotional campaign breaking down modernist residential forms.",
+        // Bespoke Vector Graphic: Editorial Social Carousel
+        cover: `<svg viewBox="0 0 800 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#F2EFE9"/>
+          <g transform="translate(160, 60)">
+            <rect width="220" height="420" fill="#FFFFFF" stroke="#26251F" stroke-width="1.2" filter="drop-shadow(0 10px 20px rgba(0,0,0,0.05))"/>
+            <text x="25" y="45" font-family="'DM Sans', sans-serif" font-size="8" letter-spacing="2" fill="#92947B">SLIDE 01 / 10</text>
+            <text x="25" y="110" font-family="'Playfair Display', serif" font-size="22" fill="#26251F">The Spatial<br/>Geometry<br/>of Wood.</text>
+            <line x1="25" y1="180" x2="195" y2="180" stroke="#92947B" stroke-width="1"/>
+            <rect x="25" y="210" width="170" height="150" fill="#EAE3D8"/>
+            <text x="110" y="290" font-family="'DM Sans', sans-serif" font-size="9" fill="#77746B" text-anchor="middle">[FIGURE A: ELEVATION]</text>
+          </g>
+          <g transform="translate(420, 60)">
+            <rect width="220" height="420" fill="#26251F" stroke="#26251F" stroke-width="1.2" filter="drop-shadow(0 14px 24px rgba(0,0,0,0.12))"/>
+            <text x="25" y="45" font-family="'DM Sans', sans-serif" font-size="8" letter-spacing="2" fill="#92947B">SLIDE 02 / 10</text>
+            <text x="25" y="120" font-family="'Playfair Display', serif" font-size="20" font-style="italic" fill="#F7F4ED">"Form follows<br/>silence."</text>
+            <rect x="25" y="210" width="170" height="150" fill="none" stroke="#92947B" stroke-width="0.75" stroke-dasharray="4 4"/>
+            <circle cx="110" cy="285" r="40" fill="#92947B" opacity="0.3"/>
+          </g>
+        </svg>`,
+        images: [
+          `<svg viewBox="0 0 1000 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#EAE3D8"/>
+            <text x="500" y="260" font-family="'Playfair Display', serif" font-size="30" fill="#26251F" text-anchor="middle">Carousel Design System (10-Frame Flow)</text>
+            <text x="500" y="295" font-family="'DM Sans', sans-serif" font-size="11" letter-spacing="3" fill="#77746B" text-anchor="middle">SWIPEABLE HOOK • ANALYTICAL CONTENT • CALL TO ACTION</text>
+          </svg>`
+        ],
+        overview: "An educational social media publishing system crafted to present complex architectural movements in an intuitive, swipeable format.",
+        objective: "Dramatically increase audience bookmark rates and algorithmic shares by offering magazine-quality content natively inside social feeds.",
+        approach: "Combining Swiss asymmetric grids with high-contrast pull-quotes and geometric line work.",
+        outcome: "A modular, reusable carousel system that led to an immediate 40% surge in audience engagement and brand authority."
+      },
+      {
+        id: "proj-3",
+        title: "The Mindful Creator Essays",
+        category: "thumbnails",
+        categoryLabel: "Thumbnails",
+        year: "2025",
+        summary: "Editorial YouTube thumbnail visual system for a long-form digital philosophy and focus creator.",
+        // Bespoke Vector Graphic: High-End YouTube Thumbnail
+        cover: `<svg viewBox="0 0 800 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#26251F"/>
+          <g transform="translate(100, 65)">
+            <rect width="600" height="420" fill="#1E1D19" stroke="#92947B" stroke-width="0.5"/>
+            <rect x="30" y="30" width="540" height="360" fill="none" stroke="#3A3831" stroke-width="1"/>
+            <circle cx="430" cy="210" r="110" fill="#92947B" opacity="0.25"/>
+            <circle cx="430" cy="210" r="70" fill="none" stroke="#F7F4ED" stroke-width="1"/>
+            <text x="65" y="160" font-family="'DM Sans', sans-serif" font-size="11" letter-spacing="4" fill="#92947B">ESSAY NO. 04</text>
+            <text x="65" y="225" font-family="'Playfair Display', serif" font-size="52" font-style="italic" fill="#F7F4ED">The Cost of<br/>Speed.</text>
+            <line x1="65" y1="310" x2="240" y2="310" stroke="#92947B" stroke-width="1.5"/>
+            <text x="65" y="340" font-family="'DM Sans', sans-serif" font-size="12" letter-spacing="2" fill="#EAE3D8">STOPPING THE NOISE IN 2026</text>
+            <rect x="490" y="340" width="50" height="24" rx="2" fill="#EAE3D8"/>
+            <text x="515" y="356" font-family="'DM Sans', sans-serif" font-size="10" font-weight="700" fill="#26251F" text-anchor="middle">4K</text>
+          </g>
+        </svg>`,
+        images: [
+          `<svg viewBox="0 0 1000 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#26251F"/>
+            <text x="500" y="260" font-family="'Playfair Display', serif" font-size="32" fill="#F7F4ED" text-anchor="middle">Click-Through Ratio &amp; Contrast Testing</text>
+            <text x="500" y="295" font-family="'DM Sans', sans-serif" font-size="11" letter-spacing="3" fill="#92947B" text-anchor="middle">TESTED ACROSS MOBILE &amp; DESKTOP VIEWPORTS</text>
+          </svg>`
+        ],
+        overview: "A deliberate visual packaging identity for long-form video documentaries tackling cognitive focus and creator longevity.",
+        objective: "Avoid loud, cartoonish clickbait trends in favor of a cinematic, book-cover feel that builds organic intellectual trust.",
+        approach: "High-contrast serif headlines, deep charcoal grounds, and warm atmospheric spotlights.",
+        outcome: "A recognizable thumbnail signature that elevated the creator's subscriber quality and average watch time."
+      },
+      {
+        id: "proj-4",
+        title: "Bauhaus Centennial Posters",
+        category: "posters",
+        categoryLabel: "Posters",
+        year: "2025",
+        summary: "Limited edition screen-printed exhibition poster series celebrating modernism and tectonic form.",
+        // Bespoke Vector Graphic: Minimalist Exhibition Poster
+        cover: `<svg viewBox="0 0 800 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#E5DFD4"/>
+          <g transform="translate(250, 45)">
+            <rect width="300" height="460" fill="#F7F4ED" stroke="#26251F" stroke-width="1.5" filter="drop-shadow(0 16px 32px rgba(0,0,0,0.08))"/>
+            <text x="25" y="45" font-family="'DM Sans', sans-serif" font-size="9" letter-spacing="2" fill="#26251F">EXHIBITION POSTER • 1925—2025</text>
+            <rect x="25" y="70" width="250" height="230" fill="#26251F"/>
+            <circle cx="150" cy="185" r="70" fill="#EAE3D8"/>
+            <circle cx="150" cy="185" r="35" fill="#92947B"/>
+            <text x="25" y="340" font-family="'Playfair Display', serif" font-size="28" fill="#26251F">Modern Art &amp;<br/>Structure.</text>
+            <line x1="25" y1="410" x2="275" y2="410" stroke="#92947B" stroke-width="1"/>
+            <text x="25" y="430" font-family="'DM Sans', sans-serif" font-size="8" fill="#77746B">GALLERY ENTRANCE • NOVEMBER 12</text>
+            <text x="275" y="430" font-family="'DM Sans', sans-serif" font-size="8" fill="#77746B" text-anchor="end">CURATED ARCHIVE</text>
+          </g>
+        </svg>`,
+        images: [
+          `<svg viewBox="0 0 1000 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#EAE3D8"/>
+            <text x="500" y="260" font-family="'Playfair Display', serif" font-size="32" fill="#26251F" text-anchor="middle">Screen-Print Color Separation &amp; Plate Registry</text>
+            <text x="500" y="295" font-family="'DM Sans', sans-serif" font-size="11" letter-spacing="3" fill="#77746B" text-anchor="middle">500MM X 700MM PRINT SPECIMEN</text>
+          </svg>`
+        ],
+        overview: "A series of archival print posters designed for a commemorative design retrospective highlighting geometric rigor.",
+        objective: "Harmonize historic German typography principles with contemporary warm paper tones and tactile screen-print inks.",
+        approach: "Restricted 3-color palette, strict mathematical grid divisions, and deliberate negative space tension.",
+        outcome: "A sold-out print run of 250 signed archival prints and collateral for the accompanying gallery tour."
+      },
+      {
+        id: "proj-5",
+        title: "Aura Botanical Apothecary",
+        category: "branding",
+        categoryLabel: "Brand Identity",
+        year: "2025",
+        summary: "Complete visual identity, bottle typography, unboxing collateral, and packaging guidelines for organic botanicals.",
+        // Bespoke Vector Graphic: Luxury Bottle & Package
+        cover: `<svg viewBox="0 0 800 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#EFECE4"/>
+          <g transform="translate(180, 80)">
+            <rect width="200" height="380" fill="#E2DAD0" stroke="#26251F" stroke-width="1"/>
+            <rect x="25" y="35" width="150" height="310" fill="#FFFFFF" stroke="#26251F" stroke-width="0.5"/>
+            <text x="100" y="90" font-family="'Playfair Display', serif" font-size="20" fill="#26251F" text-anchor="middle">Aura</text>
+            <text x="100" y="110" font-family="'DM Sans', sans-serif" font-size="7" letter-spacing="3" fill="#92947B" text-anchor="middle">BOTANICA</text>
+            <circle cx="100" cy="170" r="26" fill="none" stroke="#92947B" stroke-width="0.75"/>
+            <text x="100" y="240" font-family="'DM Sans', sans-serif" font-size="8" fill="#77746B" text-anchor="middle">Facial Nectar</text>
+            <text x="100" y="255" font-family="'DM Sans', sans-serif" font-size="7" fill="#92947B" text-anchor="middle">30 ML / 1.0 FL OZ</text>
+          </g>
+          <g transform="translate(420, 110)">
+            <path d="M 40 70 L 40 320 C 40 340 160 340 160 320 L 160 70 C 160 50 40 50 40 70 Z" fill="#92947B" opacity="0.3" stroke="#26251F" stroke-width="1.2"/>
+            <rect x="75" y="20" width="50" height="35" fill="#26251F"/>
+            <rect x="55" y="120" width="90" height="150" fill="#F7F4ED" stroke="#26251F" stroke-width="0.5"/>
+            <text x="100" y="170" font-family="'Playfair Display', serif" font-size="18" fill="#26251F" text-anchor="middle">Aura</text>
+            <text x="100" y="190" font-family="'DM Sans', sans-serif" font-size="6" letter-spacing="2" fill="#92947B" text-anchor="middle">OIL NO. 01</text>
+          </g>
+        </svg>`,
+        images: [
+          `<svg viewBox="0 0 1000 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#E2DAD0"/>
+            <text x="500" y="260" font-family="'Playfair Display', serif" font-size="32" fill="#26251F" text-anchor="middle">Amber Glass Bottle &amp; Secondary Packaging Suite</text>
+            <text x="500" y="295" font-family="'DM Sans', sans-serif" font-size="11" letter-spacing="3" fill="#77746B" text-anchor="middle">FOIL STAMP SPECIFICATIONS &amp; EMBOSS MOCKUPS</text>
+          </svg>`
+        ],
+        overview: "An earthy, sustainable identity designed for an organic skincare apothecary championing regenerative flora.",
+        objective: "Position the line as an authentic, high-efficacy ritual while communicating handcrafted provenance.",
+        approach: "High-contrast serif wordmarks balanced with tactile craft paper cartons and minimalist amber apothecary droppers.",
+        outcome: "A full retail packaging rollout across 8 product SKUs and ecommerce unboxing components."
+      },
+      {
+        id: "proj-6",
+        title: "Monograph: The Quiet Atelier",
+        category: "other",
+        categoryLabel: "Other Designs",
+        year: "2025",
+        summary: "Hardcover cloth-bound editorial monograph celebrating Scandinavian craft and architecture.",
+        // Bespoke Vector Graphic: Cloth-bound Monograph
+        cover: `<svg viewBox="0 0 800 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100%" height="100%" fill="#E9E4DC"/>
+          <g transform="translate(230, 45)">
+            <rect width="340" height="460" rx="3" fill="#DFD7CA" stroke="#26251F" stroke-width="1.5" filter="drop-shadow(0 20px 40px rgba(0,0,0,0.1))"/>
+            <line x1="28" y1="0" x2="28" y2="460" stroke="#26251F" stroke-width="1.5"/>
+            <rect x="70" y="110" width="220" height="240" fill="#F7F4ED" stroke="#26251F" stroke-width="0.75"/>
+            <text x="180" y="195" font-family="'Playfair Display', serif" font-size="24" font-style="italic" fill="#26251F" text-anchor="middle">The Quiet<br/>Atelier.</text>
+            <line x1="120" y1="245" x2="240" y2="245" stroke="#92947B" stroke-width="1"/>
+            <text x="180" y="275" font-family="'DM Sans', sans-serif" font-size="8" letter-spacing="3" fill="#77746B" text-anchor="middle">MONOGRAPH • VOL. I</text>
+            <text x="180" y="420" font-family="'DM Sans', sans-serif" font-size="9" letter-spacing="1" fill="#26251F" text-anchor="middle">SHARAT GANDHI EDITION</text>
+          </g>
+        </svg>`,
+        images: [
+          `<svg viewBox="0 0 1000 550" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#EAE3D8"/>
+            <text x="500" y="260" font-family="'Playfair Display', serif" font-size="32" fill="#26251F" text-anchor="middle">Interior Editorial Spreads &amp; Grid Hierarchy</text>
+            <text x="500" y="295" font-family="'DM Sans', sans-serif" font-size="11" letter-spacing="3" fill="#77746B" text-anchor="middle">120-PAGE HARDCOVER BINDING ARCHITECTURE</text>
+          </svg>`
+        ],
+        overview: "A custom 120-page monograph documenting the architecture and furniture philosophy of quiet Scandinavian workspaces.",
+        objective: "Provide a tactile, collectible portfolio centerpiece that demonstrates mastery of typography, paper stock selection, and print production.",
+        approach: "Rigorous Swiss grids with generous outer margins, linen debossing, and synchronized column widths.",
+        outcome: "A published hardcover edition featured in independent design bookstores and gallery collections."
+      }
+    ];
+
+    // ==========================================================================
+    // RENDER & FILTERING ENGINE
+    // ==========================================================================
+    const projectsContainer = document.getElementById('projectsContainer');
+    const filterChips = document.querySelectorAll('.filter-chip');
+
+    function renderPortfolio(category = 'all') {
+      projectsContainer.innerHTML = '';
+
+      const filtered = category === 'all'
+        ? portfolioProjects
+        : portfolioProjects.filter(p => p.category === category);
+
+      if (filtered.length === 0) {
+        projectsContainer.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 0; color: var(--text-secondary);">
+            <p>No project specimens found under this classification.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((project, index) => {
+        const item = document.createElement('article');
+        item.className = 'project-entry';
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.setAttribute('aria-label', `View case study for ${project.title}`);
+
+        item.innerHTML = `
+          <div class="project-viewport">
+            ${project.cover}
+          </div>
+          <div class="project-body-card">
+            <div class="project-tagline-row">
+              <span class="project-category-badge">${project.categoryLabel}</span>
+              <span class="project-year-badge">${project.year}</span>
+            </div>
+            <h3 class="project-title-text">${project.title}</h3>
+            <p class="project-abstract">${project.summary}</p>
+            <div class="view-case-trigger">
+              <span>View Case Details</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        `;
+
+        item.addEventListener('click', () => openCaseStudy(project.id));
+        item.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openCaseStudy(project.id);
+          }
+        });
+
+        projectsContainer.appendChild(item);
+      });
+    }
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        renderPortfolio(chip.getAttribute('data-filter'));
+      });
+    });
+
+    // ==========================================================================
+    // CASE STUDY MODAL DIALOG
+    // ==========================================================================
+    const caseModal = document.getElementById('caseModal');
+    const modalInnerData = document.getElementById('modalInnerData');
+    const modalClose = document.getElementById('modalClose');
+    let focusedTrigger = null;
+
+    function openCaseStudy(projectId) {
+      const p = portfolioProjects.find(item => item.id === projectId);
+      if (!p) return;
+
+      focusedTrigger = document.activeElement;
+
+      modalInnerData.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.75rem;">
+          <span style="font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-deep); font-weight: 600;">
+            ${p.categoryLabel} &bull; Case Specimen
+          </span>
+          <span style="font-family: monospace; font-size: 0.85rem; color: var(--text-secondary);">${p.year}</span>
+        </div>
+
+        <h2 id="modalHeading" style="font-family: var(--font-display); font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.15; color: var(--text-primary); margin-bottom: 1.25rem;">
+          ${p.title}
+        </h2>
+
+        <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.75; max-width: 800px;">
+          ${p.overview}
+        </p>
+
+        <!-- Spec Data Table -->
+        <div class="case-spec-table">
+          <div class="spec-item">
+            <span>Designer</span>
+            <strong>Sharat Gandhi</strong>
+          </div>
+          <div class="spec-item">
+            <span>Discipline</span>
+            <strong>${p.categoryLabel}</strong>
+          </div>
+          <div class="spec-item">
+            <span>Timeline</span>
+            <strong>${p.year}</strong>
+          </div>
+          <div class="spec-item">
+            <span>Deliverables</span>
+            <strong>Vector &bull; Print &bull; Web</strong>
+          </div>
+        </div>
+
+        <!-- Visual Gallery -->
+        <div class="case-gallery-stack">
+          <div class="case-art-frame">
+            ${p.cover}
+          </div>
+          ${p.images.map(imgSvg => `
+            <div class="case-art-frame">
+              ${imgSvg}
+            </div>
+          `).join('')}
+        </div>
+
+        <!-- Project Analysis -->
+        <div class="case-analysis-grid">
+          <div class="analysis-cell">
+            <h4>Design Objective</h4>
+            <p>${p.objective}</p>
+          </div>
+          <div class="analysis-cell">
+            <h4>Creative Approach</h4>
+            <p>${p.approach}</p>
+          </div>
+          <div class="analysis-cell">
+            <h4>Final Outcome</h4>
+            <p>${p.outcome}</p>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; padding-top: 2rem; border-top: 1px solid var(--border-medium);">
+          <div>
+            <span style="font-size: 0.82rem; color: var(--text-secondary); display: block;">Interested in a similar aesthetic?</span>
+            <strong style="font-size: 1.05rem;">Let's discuss your brand requirements.</strong>
+          </div>
+          <a href="#contact" class="btn btn-primary" onclick="closeCaseStudy()">Start an Inquiry</a>
+        </div>
+      `;
+
+      caseModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    }
+
+    function closeCaseStudy() {
+      caseModal.classList.remove('active');
+      document.body.style.overflow = '';
+      if (focusedTrigger) focusedTrigger.focus();
+    }
+
+    modalClose.addEventListener('click', closeCaseStudy);
+    caseModal.addEventListener('click', (e) => {
+      if (e.target === caseModal) closeCaseStudy();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && caseModal.classList.contains('active')) {
+        closeCaseStudy();
+      }
+    });
+
+    // ==========================================================================
+    // STUDIO CLOCK & UTILITIES
+    // ==========================================================================
+    function updateStudioClock() {
+      const now = new Date();
+      // Format time in Indian Standard Time (IST)
+      const options = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false };
+      const timeStr = now.toLocaleTimeString('en-GB', options);
+      const clockEl = document.getElementById('studioTime');
+      if (clockEl) clockEl.textContent = timeStr;
+    }
+    setInterval(updateStudioClock, 1000);
+    updateStudioClock();
+
+    // Copy Email Utility
+    function copyEmail(button) {
+      const email = "sharatgandhi.design@gmail.com";
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = button.textContent;
+        button.textContent = "Copied!";
+        button.style.backgroundColor = "var(--text-primary)";
+        button.style.color = "#FFFFFF";
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.style.backgroundColor = "transparent";
+          button.style.color = "var(--text-secondary)";
+        }, 2000);
+      });
+    }
+
+    // Dynamic Year
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+
+    // Mobile Drawer Navigation
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileBtn.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.toggle('open');
+      mobileBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileDrawer.classList.remove('open');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Form Handling Feedback
+    const inquiryForm = document.getElementById('inquiryForm');
+    const feedbackNotice = document.getElementById('formSuccessNotice');
+
+    inquiryForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      feedbackNotice.className = 'feedback-notice success';
+      feedbackNotice.style.display = 'block';
+      inquiryForm.reset();
+    });
+
+    // Initial Portfolio Render
+    renderPortfolio('all');
+  </script>
+</body>
+</html>
